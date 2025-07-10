@@ -15,3 +15,37 @@ AND ps.Tariff > 5
 ORDER BY 
     ps.AdmittedDate DESC, 
     ps.PatientId DESC
+
+SELECT 
+    ps.Hospital
+    , ps.Ward
+    ,COUNT(*) AS NumberOfPatients
+    , SUM(ps.Tariff) AS TotalTariff
+    , AVG(PS.Tariff) AS AverageTariff
+FROM 
+    PatientStay ps
+GROUP BY 
+    ps.Hospital
+    , ps.Ward
+ORDER BY 
+    NumberOfPatients DESC
+
+SELECT * FROM DimHospitalBad
+
+SELECT 
+    ps.PatientId
+    ,ps.AdmittedDate
+    , ps.Hospital
+    ,h.Hospital
+    ,h.HospitalSize
+FROM PatientStay ps LEFT JOIN DimHospitalBad h ON ps.Hospital = h.Hospital
+
+
+SELECT
+    ps.PatientId 
+    ,ps.AdmittedDate
+    ,h.Hospital 
+    ,h.HospitalSize
+FROM
+    PatientStay ps
+    LEFT JOIN DimHospitalBad h ON ps.Hospital = h.Hospital

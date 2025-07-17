@@ -77,14 +77,14 @@ SELECT
     ,p.PostCode
     ,p.PAON
     , p.PropertyType
-    , CASE p.PropertyType  -- simple
+    , CASE p.PropertyType  -- simple CASE
         WHEN 'F' THEN 'Flat'
         WHEN 'T' THEN 'Terraced'
         ELSE 'Unknown'
     END AS PropertyTypeNameSimple
-    , CASE -- Searched
+    , CASE -- Searched CASE
         WHEN p.PropertyType IN ('D', 'S', 'T') THEN 'Freehold'
-        ELSE 'leasohold'
+        ELSE 'Leasehold'
     END AS PropertyDuration
 FROM
     PricePaidSW12 AS p

@@ -1,3 +1,4 @@
+-- standard select / where / order by
 SELECT 
     ps.PatientId
     , ps.Hospital
@@ -16,6 +17,7 @@ ORDER BY
     ps.AdmittedDate DESC, 
     ps.PatientId DESC
 
+-- group by and summarise
 SELECT 
     ps.Hospital
     , ps.Ward
@@ -32,6 +34,7 @@ ORDER BY
 
 SELECT * FROM DimHospitalBad
 
+-- Example of a JOIN
 SELECT 
     ps.PatientId
     ,ps.AdmittedDate
